@@ -1,0 +1,7 @@
+git init : tạo responstory
+git status : Kiểm tra tình trạng file
+git add + tên file
+git commit -m "Nội dung"
+git branch -M main
+git remote add origin "link"
+git push -u origin main
