@@ -2,7 +2,7 @@
 
 using namespace std;
 
-/*struct phanso
+struct phanso
 {
     int tu,mau;
 };
@@ -38,8 +38,8 @@ void doidau(phanso a[] , int n){
 
 void tinhtong(phanso a[]){
     int m,n;
-    m = a.tu * b.mau + b.tu * a.mau;
-    n = a.mau * b.mau;
+    m = a[1].tu * a[2].mau + a[2].tu * a[1].mau;
+    n = a[1].mau * [2].mau;
     a[3].tu = m;
     a[3].mau = n;
     toigian(a,3);
@@ -64,9 +64,9 @@ int main(){
     cout << "Tong hai phan so la : " << a[3].tu << "/" << a[3].mau << endl;
     tinhhieu(a);
     cout << "Hieu hai phan so la : " << a[4].tu << "/" << a[4].mau << endl;
-}*/
+}
 
-class PhanSo {
+/*class PhanSo {
 private:
     int tu, mau;
 public:
@@ -160,4 +160,4 @@ int main() {
     d = Hieu(a, b);
     d.DoiDau();
     d.Xuat("hieu");
-}
+}*/

@@ -33,7 +33,16 @@ void SoPhuc::Input(int n){
 }
 
 void SoPhuc::Output(string s){
-    cout << s << " la : " << thuc << " + " << ao << "i" << endl;
+    if (ao > 0){
+        cout << s << " la : " << thuc << " + " << ao << "i" << endl;
+    }
+    if (ao < 0){
+        cout << s << " la : " << thuc << " - " << -ao << "i" << endl;
+    }
+    if (ao == 0){
+        cout << s << " la : " << thuc << endl;
+    }
+    
 }
 
 SoPhuc Tong(SoPhuc n , SoPhuc m){

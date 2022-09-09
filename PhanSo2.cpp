@@ -119,12 +119,11 @@ void PhanSo::Xuat(string s) {
 }
 
 int main() {
-    PhanSo a, b, c;
-    int e=9;
-    a.Nhap('1');
+    PhanSo a(1,2), b, c, v(a) ;//copy constructor
+    // a.Nhap('1');
+    v.Xuat("a");
     b.Nhap('2');
-    // c = Tong(a, b);
-    c = a.Tong(e);
+    c = Tong(a, b);
     c.Xuat("Ket qua phep cong");
     c = Hieu(a, b);
     c.Xuat("Ket qua phep tru");
