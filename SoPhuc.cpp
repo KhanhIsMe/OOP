@@ -13,7 +13,7 @@ public:
     friend SoPhuc Tong(SoPhuc n, SoPhuc m);
     friend SoPhuc Hieu(SoPhuc n, SoPhuc m);
     void Input(int n);
-    void Output();
+    void Output(string s);
  
 };
 
@@ -32,8 +32,8 @@ void SoPhuc::Input(int n){
     cin >> thuc >> ao;
 }
 
-void SoPhuc::Output(){
-    cout << "So phuc la : " << thuc << " + " << ao << "i" << endl;
+void SoPhuc::Output(string s){
+    cout << s << " la : " << thuc << " + " << ao << "i" << endl;
 }
 
 SoPhuc Tong(SoPhuc n , SoPhuc m){
@@ -51,11 +51,11 @@ SoPhuc Hieu(SoPhuc n, SoPhuc m){
 }
 
 int main(){
-    SoPhuc a[50];
-    a[1].Input(1);
-    a[2].Input(2);
-    a[3] = Tong(a[1] , a[2]);
-    a[3].Output();
-    a[4] = Hieu(a[1] , a[2]);
-    a[4].Output();
+    SoPhuc a, b, c;
+    a.Input(1);
+    b.Input(2);
+    c = Tong(a , b);
+    c.Output("Tong");
+    c = Hieu(a , b);
+    c.Output("Hieu");
 }
