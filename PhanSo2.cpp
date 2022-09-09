@@ -16,6 +16,7 @@ class PhanSo {
         friend PhanSo ToiGian(PhanSo a);
         friend PhanSo Tong(PhanSo a, PhanSo b);
         PhanSo Tong(PhanSo b);
+        PhanSo Tong(int b);
         friend PhanSo Hieu(PhanSo a, PhanSo b);
         friend PhanSo Tich(PhanSo a, PhanSo b);
         friend PhanSo Chia(PhanSo a, PhanSo b);
@@ -77,6 +78,13 @@ PhanSo PhanSo::Tong(PhanSo b){
     return ToiGian(KQ);
 }
 
+PhanSo PhanSo::Tong(int b){
+    PhanSo KQ;
+    KQ.tu = tu + b*mau;
+    KQ.mau = mau;
+    return ToiGian(KQ);
+}
+
 PhanSo Hieu(PhanSo a, PhanSo b) {
     PhanSo c;
     c.tu = a.tu * b.mau - b.tu * a.mau;
@@ -112,10 +120,11 @@ void PhanSo::Xuat(string s) {
 
 int main() {
     PhanSo a, b, c;
+    int e=9;
     a.Nhap('1');
     b.Nhap('2');
     // c = Tong(a, b);
-    c = a.Tong(b);
+    c = a.Tong(e);
     c.Xuat("Ket qua phep cong");
     c = Hieu(a, b);
     c.Xuat("Ket qua phep tru");
