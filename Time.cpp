@@ -5,6 +5,7 @@ using namespace std;
 
 class Time
 {
+    
 public:
 	Time();
 	void Nhap();
