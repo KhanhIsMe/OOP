@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -14,6 +15,8 @@ class PhanSo {
         void DoiDau();
         friend PhanSo ToiGian(PhanSo a);
         friend PhanSo Tong(PhanSo a, PhanSo b);
+        PhanSo Tong(PhanSo b);
+        PhanSo Tong(int b);
         friend PhanSo Hieu(PhanSo a, PhanSo b);
         friend PhanSo Tich(PhanSo a, PhanSo b);
         friend PhanSo Chia(PhanSo a, PhanSo b);
@@ -68,6 +71,20 @@ PhanSo Tong(PhanSo a, PhanSo b) {
     return ToiGian(c);
 };
 
+PhanSo PhanSo::Tong(PhanSo b){
+    PhanSo KQ;
+    KQ.tu = tu * b.mau + b.tu * mau;
+    KQ.mau = mau*b.mau;
+    return ToiGian(KQ);
+}
+
+PhanSo PhanSo::Tong(int b){
+    PhanSo KQ;
+    KQ.tu = tu + b*mau;
+    KQ.mau = mau;
+    return ToiGian(KQ);
+}
+
 PhanSo Hieu(PhanSo a, PhanSo b) {
     PhanSo c;
     c.tu = a.tu * b.mau - b.tu * a.mau;
@@ -102,8 +119,9 @@ void PhanSo::Xuat(string s) {
 }
 
 int main() {
-    PhanSo a, b, c;
-    a.Nhap('1');
+    PhanSo a(1,2), b, c, v(a) ;//copy constructor
+    // a.Nhap('1');
+    v.Xuat("a");
     b.Nhap('2');
     c = Tong(a, b);
     c.Xuat("Ket qua phep cong");
