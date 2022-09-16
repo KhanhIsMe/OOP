@@ -9,6 +9,7 @@ private:
     int ngay, thang, nam;
 public:
     Date(/* args */);
+    Date(int d , int m ,int y);
     ~Date();
     void Nhap();
     void HienThi();
@@ -17,7 +18,6 @@ public:
     int Nhom();
     int next();
     int pre();
-    int XLNgay();
 };
 
 Date::Date(/* args */)
@@ -27,6 +27,12 @@ Date::Date(/* args */)
 Date::~Date()
 {
 }
+
+Date::Date(int d, int m, int y){
+    ngay = d;
+    thang = m;
+    nam = y;
+};
 
 void Date::Nhap(){
     cout << "Nhap ngay thang nam : ";
@@ -132,8 +138,12 @@ int Date::pre(){
 int Xuli(Date &d){
     int n;
     do{
+        if (d.KiemTra() == 0) {
+            cout << "Xay ra loi vui long nhap lai !!!" << endl;
+        }
         d.Nhap();
     } while (d.KiemTra() == 0);
+
     do{
         cout << "----------------------------------\n";
         cout << "- Chon hanh dong muon thuc hien :-\n";
@@ -152,14 +162,17 @@ int Xuli(Date &d){
             d.pre();
             d.HienThi();
             break;
+        case 0:
+            break;
         default:
+            cout << "Vui long nhap tu 0 -> 2" << endl;
             break;
         }
     }while (n != 0);
 }
 
 int main(){
-    Date d;
+    Date d(1,1,1);
     Xuli(d);
 }
 
